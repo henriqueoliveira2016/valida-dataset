@@ -12,12 +12,15 @@ import { EditComponent } from './contatos/edit/edit.component';
 import { ListComponent } from './contatos/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ImportComponent } from './dataSet/import/import.component';
+import { MaterialModule } from './material-module/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditComponent,
-    ListComponent
+    ListComponent,
+    ImportComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
