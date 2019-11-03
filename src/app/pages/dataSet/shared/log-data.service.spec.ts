@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ContatoService } from './contato.service';
+import { LogDataService } from './log-data.service';
 
-describe('ContatoService', () => {
+describe('LogDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ContatoService = TestBed.get(ContatoService);
+    const service: LogDataService = TestBed.get(LogDataService);
     expect(service).toBeTruthy();
   });
 });

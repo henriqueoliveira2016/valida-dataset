@@ -1,0 +1,10 @@
+<button type="button" class="btn btn-primary ml-2 margin-page" (click)="deleteAll()">Limpar</button>
+<div class="card mt-2 margin-page" *ngFor="let log of logs | async">
+    <div class="card-body">
+        <h5 class="card-title">{{log.nome}}</h5>
+        <p class="card-text">{{log.descricao}}</p>
+    </div>
+    <div class="card-footer">        
+        <button type="button" class="btn btn-danger ml-2" (click)="delete(log.key)">Excluir</button>
+    </div>
+</div>

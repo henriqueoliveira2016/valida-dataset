@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EditComponent } from './contatos/edit/edit.component';
-import { ListComponent } from './contatos/list/list.component';
+import { ImportComponent } from './pages/dataSet/import/import.component';
+import { ListComponent } from './pages/dataset/list/list.component';
 
 
 const routes: Routes = [
   {
-    path: 'edit', component: EditComponent
+      path: 'import', component: ImportComponent
   },
   {
-      path: 'list', component: ListComponent
+    path: 'list', component: ListComponent
   },
+  { path: '', redirectTo: '/import', pathMatch: 'full' },
 ];
 
 @NgModule({

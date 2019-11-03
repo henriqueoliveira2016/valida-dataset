@@ -8,19 +8,17 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
-import { EditComponent } from './contatos/edit/edit.component';
-import { ListComponent } from './contatos/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { ImportComponent } from './dataSet/import/import.component';
+import { ImportComponent } from './pages/dataSet/import/import.component';
 import { MaterialModule } from './material-module/material.module';
+import { ListComponent } from './pages/dataset/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditComponent,
-    ListComponent,
-    ImportComponent
+    ImportComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
