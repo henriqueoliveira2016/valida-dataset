@@ -21,10 +21,10 @@ export class ImportComponent implements OnInit {
   }
 
   handleFileInput(file: any) {
-    this.csvParaArray(file)    
+    this.csvParaArray(file)
   }
 
-  public csvParaArray(fileInput: any) {        
+  public csvParaArray(fileInput: any) {
     //ler arquivo do input
     let fileReaded = fileInput.target.files[0];
 
@@ -32,37 +32,37 @@ export class ImportComponent implements OnInit {
     reader.readAsText(fileReaded);
 
     reader.onload = (e) => {
-        let csv: any = reader.result;
-        let allTextLines = csv.split(/\r|\n|\r/);
-        let headers = allTextLines[0].split(',');
-        let lines = [];
+      let csv: any = reader.result;
+      let allTextLines = csv.split(/\r|\n|\r/);
+      let headers = allTextLines[0].split(',');
+      let lines = [];
 
-        for (let i = 0; i < allTextLines.length; i++) {
-            // dividir conteúdo com base em vírgula
-            let data = allTextLines[i].split(',');
-            if (data.length === headers.length) {
-                let tarr = [];
-                for (let j = 0; j < headers.length; j++) {
-                    tarr.push(data[j]);
-                }
-                
-                lines.push(tarr);  
+      for (let i = 0; i < allTextLines.length; i++) {
+        // dividir conteúdo com base em vírgula
+        let data = allTextLines[i].split(',');
+        if (data.length === headers.length) {
+          let tarr = [];
+          for (let j = 0; j < headers.length; j++) {
+            tarr.push(data[j]);
+          }
 
-                if (lines.length == 1) {
-                  this.validadorSchema.validaCabecalho(tarr).then(log => {
-                    this.logService.insert(log);                    
-                  });
-                }                        
+          lines.push(tarr);
 
-                if (lines.length > 1) {
-                  this.validadorSchema.validaCamposVazios(tarr, lines.length).then(log2 => {
-                    this.logService.insert(log2);
-                  })
-                } 
-            }
+          if (lines.length == 1) {
+            this.validadorSchema.validaCabecalho(tarr).then(log => {
+              this.logService.insert(log);
+            });
+          }
+
+          if (lines.length > 1) {
+            this.validadorSchema.validaCamposVazios(tarr, lines.length).then(log2 => {
+              this.logService.insert(log2);
+            })
+          }
         }
+      }
     }
 
-}
+  }
 
 }

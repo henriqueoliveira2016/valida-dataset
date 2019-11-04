@@ -22,31 +22,31 @@ export class ValidadorSchema {
         "AEC_One Row Outcomes",
         "SYM_One Row Coded Symptoms"
 
-    ];  
+    ];
 
     constructor() {
-        
+
     }
 
     ngOnInit() {
 
-    }    
+    }
 
-    public validaCabecalho(objeto: Array<Object>) : Promise<Log> {  
+    public validaCabecalho(objeto: Array<Object>): Promise<Log> {
         return new Promise((resolve, reject) => {
-            if (JSON.stringify(objeto) === JSON.stringify(this.cabecalho)) {                
-                resolve(this.log = {nome: "Log Cabeçalho", descricao: "O cabeçalho do seu arquivo não possui erro!"});                    
+            if (JSON.stringify(objeto) === JSON.stringify(this.cabecalho)) {
+                resolve(this.log = { nome: "Log Cabeçalho", descricao: "O cabeçalho do seu arquivo não possui erro!" });
             } else {
-                resolve(this.log = {nome: "Erro Log Cabeçalho", descricao: "Verifique o cabeçalho do seu arquivo CSV!"});
+                resolve(this.log = { nome: "Erro Log Cabeçalho", descricao: "Verifique o cabeçalho do seu arquivo CSV!" });
             }
         });
     }
 
-    public validaCamposVazios(objeto: Array<any>, index) : Promise<any> {         
-        return new Promise((resolve, reject) => {  
-            for (let i  in objeto) {
+    public validaCamposVazios(objeto: Array<any>, index): Promise<any> {
+        return new Promise((resolve, reject) => {
+            for (let i in objeto) {
                 if (objeto[i] == "") {
-                    resolve(this.log = {nome: "Erro Campo Vazio", descricao: "Existem campos vazios na linha: " + index})                    
+                    resolve(this.log = { nome: "Erro Campo Vazio", descricao: "Existem campos vazios na linha: " + index })
                 }
             }
         });
